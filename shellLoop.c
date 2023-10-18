@@ -41,7 +41,7 @@ char *withoutComm(char *in)
  * @datash: Pointer to data_shell struct
  * Return: None
  */
-void sheLoop(data_shell *datash)
+void sheLoop(DT_SH *datash)
 {
     int loop, i_eof;
     char *input;

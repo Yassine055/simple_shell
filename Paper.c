@@ -49,7 +49,7 @@ char *swapCHar(char *input, int bool)
  * @input: Input string.
  * Return: void
  */
-void addNodes(sList **head_s, line_list **head_l, char *input)
+void addNodes(sList **head_s, lList **head_l, char *input)
 {
 	int i;
 	char *line;
@@ -83,11 +83,11 @@ void addNodes(sList **head_s, line_list **head_l, char *input)
  * @datash: Data structure.
  * Return: void
  */
-void Next(sList **list_s, line_list **list_l, data_shell *datash)
+void Next(sList **list_s, lList **list_l, DT_SH *datash)
 {
 	int loop_sep;
-	sep_list *ls_s;
-	line_list *ls_l;
+	sList *ls_s;
+	lList *ls_l;
 
 	loop_sep = 1;
 	ls_s = *list_s;
@@ -125,8 +125,8 @@ void Next(sList **list_s, line_list **list_l, data_shell *datash)
  */
 int spComm(DT_SH *datash, char *input)
 {
-	sep_list *head_s, *list_s;
-	line_list *head_l, *list_l;
+	sList *head_s, *list_s;
+	lList *head_l, *list_l;
 	int loop;
 
 	head_s = NULL;

@@ -60,7 +60,7 @@ void freeSList(sList **head)
  * @line:
  * Return:
  */
-line_list *addLNEnd(lList **head, char *l)
+lList *addLNEnd(lList **head, char *l)
 {
     lList *n, *t;
 

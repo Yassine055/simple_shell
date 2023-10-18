@@ -7,7 +7,7 @@
  */
 int exeLine(DT_SH *datash)
 {
-    int (*builtin)(data_shell *datash);
+    int (*builtin)(DT_SH *datash);
 
     if (datash->args[0] == NULL)
         return (1);

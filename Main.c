@@ -24,7 +24,7 @@ void fdata(DT_SH *datash)
  * @av: Argument vector (array of strings)
  * Return: None
  */
-void sdata(data_shell *datash, char **av)
+void sdata(DT_SH *datash, char **av)
 {
     unsigned int i;
 

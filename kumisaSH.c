@@ -5,7 +5,7 @@
  * @datash: Pointer to data_shell struct
  * Return: 0 on success, 1 on failure
  */
-int exitSH(data_shell *datash)
+int exitSH(DT_SH *datash)
 {
     unsigned int ustatus;
     int is_digit;

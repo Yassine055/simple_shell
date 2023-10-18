@@ -16,13 +16,12 @@
 #define TOK_BUFSIZE 128
 #define TOK_DELIM " \t\r\n\a"
 
-/* Pointe vers un tableau de pointeurs 
- * vers des chaînes appelé "environnement" */
+/* Points to an array of pointers to strings called the "environment" */
 extern char **environ;
 
 /**
- * struct data - structure qui contient 
- * toutes les données pertinentes lors 
+ * struct DT_SH - structure qui contient
+ * toutes les données pertinentes lors
  * de l'exécution
  * @arGS: jetons de la ligne de commande
  * @inpUT: ligne de commande écrite par l'utilisateur
@@ -31,75 +30,74 @@ extern char **environ;
  * @_environ: variable d'environnement
  * @pID: ID de processus du shell
  * @aV: vecteur d'argument
- */
-typedef struct DT
+*/
+typedef struct DT_SH
 {
-    char **arGS;
-    char *inpUT;
-    int statUS;
-    int countER;
-    char **_environ;
-    char *pID;
-    char **aV;
+	char **arGS;
+	char *inpUT;
+	int statUS;
+	int countER;
+	char **_environ;
+	char *pID;
+	char **aV;
 } DT_SH;
 
 /**
- * struct sep_list_s - single linked list
+ * struct sList - single linked list
  * @separateur: ; | &
  * @suivante: next node
  * Description: single linked list to store separators
- */
+*/
 typedef struct sList
 {
-    char separateur;
-    struct sList *suivante;
+	char separateur;
+	struct sList *suivante;
 } sList;
 
 /**
- * struct line_list_s - liste chaînée unique
- * @ligne  : ligne de commande
- * @suivant : nœud suivant
- * Description : liste chaînée unique 
+ * struct lList - liste chaînée unique
+ * @ligne: ligne de commande
+ * @suivant: nœud suivant
+ * Description: liste chaînée unique
  * pour stocker les lignes de commande
- */
+*/
 typedef struct lList
 {
-    char *ligne;
-    struct lList *suivant;
+	char *ligne;
+	struct lList *suivant;
 } lList;
 
 /**
- * struct VarList - liste chaînée unique
- * @lenVar : longueur de la variable
- * @vAL : valeur de la variable
- * @lenVal : longueur de la valeur
- * @suivant : nœud suivant
- * Description : liste chaînée unique pour stocker les variables
- */
+ * struct rVar - liste chaînée unique
+ * @lenVar: longueur de la variable
+ * @vAL: valeur de la variable
+ * @lenVal: longueur de la valeur
+ * @suivant: nœud suivant
+ * Description: liste chaînée unique pour stocker les variables
+*/
 typedef struct rVar
 {
-    int lenVar;
-    char *vAL;
-    int lenVal;
-    struct rVar *suivant;
+	int lenVar;
+	char *vAL;
+	int lenVal;
+	struct rVar *suivant;
 } rVar;
 
 /**
- * struct internal_s - Structure intégrée pour les arguments de commande.
- * @nom  : Le nom de la commande intégrée, c'est-à-dire cd, exit, env
- * @F : fonction de pointeur de type de données.
- */
+ * struct BuiltinT - Structure intégrée pour les arguments de commande.
+ * @nom: Le nom de la commande intégrée, c'est-à-dire cd, exit, env
+ * @F: fonction de pointeur de type de données.
+*/
 typedef struct BuiltinT
 {
-    char *nom;
-    int (*F)(DT_SH *dataSH);
+	char *nom;
+	int (*F)(DT_SH *dataSH);
 } BuiltinT;
 
 sList *addSNEnd(sList **heAD, char sEP);
 void freeSList(sList **heAD);
 lList *addLNEnd(lList **heAD, char *liNE);
 void freeLList(lList **heAD);
-
 rVar *addrVarNode(rVar **heAD, int lVar, char *vAR, int lVal);
 void freerVarList(rVar **heAD);
 
@@ -149,15 +147,15 @@ int exeLine(DT_SH *dataSH);
 
 int Cdir(char *path, int *i);
 char *whiCH(char *cmd, char **_environ);
-int EXecutTB(data_shell *dataSH);
-int checkErrcmd(char *dir, data_shell *datash);
+int EXecutTB(DT_SH *dataSH);
+int checkErrcmd(char *dir, DT_SH *datash);
 int cmdEX(DT_SH *dataSh);
 
 char *getENV(const char *nome, char **_environ);
 int eNV(DT_SH *dataSH);
 
 char *coINF(char *nome, char *VL);
-void setENV(char *name, char *value, data_shell *datash);
+void setENV(char *name, char *value, DT_SH *datash);
 int envSET(DT_SH *dataSH);
 int unSetEnv(DT_SH *dataSH);
 
@@ -198,4 +196,3 @@ void helpCD(void);
 int hEllP(DT_SH *dataSH);
 
 #endif
-

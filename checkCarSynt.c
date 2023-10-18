@@ -95,7 +95,7 @@ int firstCH(char *input, int *i)
  * @bool: Boolean flag
  * Return: void
  */
-void pSyErr(data_shell *datash, char *input, int i, int bool)
+void pSyErr(DT_SH *datash, char *input, int i, int bool)
 {
 	char *msg, *msg2, *msg3, *error, *counter;
 	int length;

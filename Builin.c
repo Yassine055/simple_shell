@@ -8,12 +8,12 @@
 int (*getB(char *cmd))(DT_SH *)
 {
 	builtin_t builtin[] = {
-		{"env", _env},
-		{"exit", exit_shell},
-		{"setenv", _setenv},
-		{"unsetenv", _unsetenv},
-		{"cd", cd_shell},
-		{"help", get_help},
+		{"env", eNV},
+		{"exit", exitSH},
+		{"setenv", setENV},
+		{"unsetenv", unSetEnv},
+		{"cd", cdSHell},
+		{"help", hEllP},
 		{NULL, NULL}
 	};
 	int i;
